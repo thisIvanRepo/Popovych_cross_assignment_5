@@ -1,11 +1,12 @@
 import { Text, Button } from '@react-navigation/elements';
 import { StyleSheet, View } from 'react-native';
+import { ROUTES } from '../routers';
 
 export function NotFound() {
   return (
     <View style={styles.container}>
       <Text>404</Text>
-      <Button screen="HomeTabs">Go to Home</Button>
+      <Button screen={ROUTES.MAIN_TABS}>Go to Home</Button>
     </View>
   );
 }

@@ -5,6 +5,8 @@ export const COLORS = {
   TEXT_ACTIVE: "#404040",
   DANGERE: "#FF5F57",
   ACTIVE: "#CB30E0",
+  WHITE: "#FFF"
+
 };
 
 export const TEXT_BTN = {

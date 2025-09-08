@@ -1,6 +1,7 @@
-import { Image, StyleSheet, Text, View } from "react-native";
+import { Dimensions, Image, StyleSheet, Text, View } from "react-native";
 import LogoMaster from "../../../assets/images/svg/master_avatar.svg";
 import Rating from "../Rating/Rating";
+import { COLORS } from "../../constants/constants";
 
 interface Props {
   name: string;
@@ -9,15 +10,18 @@ interface Props {
   rating: number;
 }
 
+const { width } = Dimensions.get('screen')
+
 const style = StyleSheet.create({
   container: {
-    paddingHorizontal: 12,
+    width: width * 0.8,
+    paddingHorizontal: 15,
     paddingVertical: 11,
     borderStyle: "solid",
     borderWidth: 4,
-    borderColor: "#8C8C8C",
+    borderColor: COLORS.TEXT_DISABLED,
     flexDirection: "row",
-    backgroundColor: "#404040",
+    backgroundColor: COLORS.PRIMERY,
     borderRadius: 20,
     alignItems: "center",
     justifyContent: "space-between",
@@ -25,7 +29,7 @@ const style = StyleSheet.create({
   logo: {
     alignItems: "center",
     justifyContent: "flex-end",
-    backgroundColor: "#D9D9D9",
+    backgroundColor: COLORS.SECONDART,
     height: 50,
     width: 50,
     borderRadius: 30,
@@ -33,7 +37,7 @@ const style = StyleSheet.create({
   },
   name: {
     fontSize: 20,
-    color: "#fff",
+    color: COLORS.WHITE,
   },
 });
 
@@ -44,7 +48,7 @@ const CardMaster = ({ name, status, img, rating }: Props) => {
         style.container,
         status
           ? {
-              borderColor: "#CB30E0",
+              borderColor: COLORS.ACTIVE,
               shadowColor: "#000",
               shadowOffset: { width: 10, height: 10 },
               shadowOpacity: 0.5,
@@ -58,10 +62,10 @@ const CardMaster = ({ name, status, img, rating }: Props) => {
         <Image source={{ uri: img }}></Image>
       ) : (
         <View style={style.logo}>
-          <LogoMaster width={"100%"} height={35} />
+          <LogoMaster width={"100%"} height={45} />
         </View>
       )}
-      <Text style={[style.name, status ? { color: "#CB30E0" } : {}]}>
+      <Text style={[style.name, status ? { color: COLORS.ACTIVE } : {}]}>
         {name}
       </Text>
       <Rating rating={rating} />

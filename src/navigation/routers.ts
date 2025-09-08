@@ -13,7 +13,7 @@ export type RootStackParamList = {
   DrawerNavigator: undefined;
   NotFound: undefined;
   Profile: User | undefined;
-  MasteInfo: { id: string } | undefined;
+  MasterInfo: { id: string };
 };
 
 export type BottomTabsParamList = {
