@@ -16,6 +16,7 @@ export function Profile({ route, navigation }: Props) {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 
+//Отримуємо дані з списком наших майстрів з макового API
   useEffect(() => {
     const getMasters = async () => {
       try {

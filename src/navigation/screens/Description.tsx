@@ -17,6 +17,7 @@ export function Description({ route }: Props) {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 
+  //Отримуємо дані по конкретному майстру
   useEffect(() => {
     const getMasterInfo = async () => {
       try {

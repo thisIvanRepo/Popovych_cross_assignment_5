@@ -23,7 +23,7 @@ const style = StyleSheet.create({
   },
   mask: { ...flexStars.flexRow, overflow: "hidden", zIndex: 1 },
 });
-
+//Розрахунок рейтингу і нормалізація, якщо з сервера приходить не ваідне значення
 const Rating = ({ rating }: Props) => {
   const ratingNormalized = Math.max(0, Math.min(5, rating));
   const ratingWidth = (ratingNormalized * 100) / 5;
