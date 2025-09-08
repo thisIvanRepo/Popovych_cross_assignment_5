@@ -11,6 +11,7 @@ export const ROUTES = {
 export type RootStackParamList = {
   DrawerNavigator: undefined;
   NotFound: undefined;
+  Profile: User | undefined;
 };
 
 export type User = {
