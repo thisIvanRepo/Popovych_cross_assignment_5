@@ -10,3 +10,7 @@ export const COLORS = {
 export const TEXT_BTN = {
   LOGIN: "Login",
 };
+
+export const SIZE_VAR = {
+  PADDDING_VERTICAL_BTN: 16.5,
+};

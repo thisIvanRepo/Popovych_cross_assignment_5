@@ -1,5 +1,11 @@
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import { COLORS } from "../../constants/constants";
+import {
+  Dimensions,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
+import { COLORS, SIZE_VAR } from "../../constants/constants";
 import { useNavigation } from "@react-navigation/native";
 import { User } from "../../navigation/routers";
 
@@ -27,11 +33,13 @@ export default function CoctomBtm({ name, screen, params, active }: Props) {
   );
 }
 
+const { width } = Dimensions.get("screen");
+
 const style = StyleSheet.create({
   btn: {
     alignItems: "center",
-    paddingVertical: 16.5,
-    width: 350,
+    paddingVertical: SIZE_VAR.PADDDING_VERTICAL_BTN,
+    width: width * 0.8,
     borderRadius: 12,
     backgroundColor: COLORS.SECONDART,
   },
