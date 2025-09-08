@@ -1,11 +1,11 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { ROUTES } from "./routers";
+import { BottomTabsParamList, ROUTES } from "./routers";
 import { Home } from "./screens/Home";
 import { Settings } from "./screens/Settings";
 import { Profile } from "./screens/Profile";
 
-const Tab = createBottomTabNavigator();
+const Tab = createBottomTabNavigator<BottomTabsParamList>();
 
 const BottomTabs = () => {
   return (
@@ -18,12 +18,12 @@ const BottomTabs = () => {
       <Tab.Screen
         name={ROUTES.PROFILE}
         component={Profile}
-        options={{ headerShown: true }}
+        options={{ headerShown: false }}
       />
       <Tab.Screen
         name={ROUTES.SETTINGS}
         component={Settings}
-        options={{ headerShown: true }}
+        options={{ headerShown: false }}
       />
     </Tab.Navigator>
   );

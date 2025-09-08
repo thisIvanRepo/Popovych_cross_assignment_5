@@ -1,7 +1,7 @@
 import { Text } from "@react-navigation/elements";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { ActivityIndicator, StyleSheet, View } from "react-native";
-import { RootStackParamList } from "../routers";
+import { RootStackParamList, ROUTES } from "../routers";
 import { useEffect, useState } from "react";
 import { mastersApi } from "../../api/mastersApi";
 import { Master } from "../../types/types";
@@ -11,7 +11,7 @@ import CardMaster from "../../components/CardMaster/CardMaster";
 
 type Props = NativeStackScreenProps<RootStackParamList, "Profile">;
 
-export function Profile({ route }: Props) {
+export function Profile({ route, navigation }: Props) {
   const [masters, setMasters] = useState<Master[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
@@ -20,7 +20,7 @@ export function Profile({ route }: Props) {
     const getMasters = async () => {
       try {
         setIsLoading(true);
-        const result = await mastersApi.featchMasters();
+        const result = await mastersApi.fetchMasters();
         setMasters(result.data);
       } catch (err: any) {
         setError(err.message || "Something went wrong while fetching masters");
@@ -53,7 +53,11 @@ export function Profile({ route }: Props) {
           data={masters}
           renderItem={({ item }) => {
             return (
-              <Pressable>
+              <Pressable
+                onPress={() =>
+                  navigation.navigate(ROUTES.MASTER_INFO, { id: item.id })
+                }
+              >
                 {({ pressed }) => {
                   return (
                     <CardMaster

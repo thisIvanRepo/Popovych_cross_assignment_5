@@ -1,8 +1,9 @@
 export const ROUTES = {
   DRAWER_NAVIGATOR: "DrawerNavigator",
   MAIN_TABS: "MainTabs",
-  USER_DATA: "YoureData",
   PROFILE: "Profile",
+  MASTER_INFO: "MasterInfo",
+  USER_DATA: "YoureData",
   SETTINGS: "Settings",
   SERVICES: "Services",
   NOT_FOUND: "NotFound",
@@ -12,6 +13,13 @@ export type RootStackParamList = {
   DrawerNavigator: undefined;
   NotFound: undefined;
   Profile: User | undefined;
+  MasteInfo: { id: string } | undefined;
+};
+
+export type BottomTabsParamList = {
+  YoureData: undefined;
+  Profile: undefined;
+  Settings: undefined;
 };
 
 export type User = {
