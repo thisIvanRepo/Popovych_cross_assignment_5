@@ -1,5 +1,5 @@
 import { Image, StyleSheet, Text, View } from "react-native";
-import LogoMaster from "@/assets/images/svg/master_avatar.svg";
+import LogoMaster from "../../../assets/images/svg/master_avatar.svg";
 import Rating from "../Rating/Rating";
 
 interface Props {
@@ -26,8 +26,8 @@ const style = StyleSheet.create({
     alignItems: "center",
     justifyContent: "flex-end",
     backgroundColor: "#D9D9D9",
-    height: 80,
-    width: 80,
+    height: 50,
+    width: 50,
     borderRadius: 30,
     overflow: "hidden",
   },
@@ -58,7 +58,7 @@ const CardMaster = ({ name, status, img, rating }: Props) => {
         <Image source={{ uri: img }}></Image>
       ) : (
         <View style={style.logo}>
-          <LogoMaster width={"100%"} height={65} />
+          <LogoMaster width={"100%"} height={35} />
         </View>
       )}
       <Text style={[style.name, status ? { color: "#CB30E0" } : {}]}>

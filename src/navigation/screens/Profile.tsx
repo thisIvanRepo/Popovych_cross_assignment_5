@@ -5,8 +5,9 @@ import { RootStackParamList } from "../routers";
 import { useEffect, useState } from "react";
 import { mastersApi } from "../../api/mastersApi";
 import { Master } from "../../types/types";
-import { FlatList } from "react-native-gesture-handler";
+import { FlatList, Pressable } from "react-native-gesture-handler";
 import { COLORS } from "../../constants/constants";
+import CardMaster from "../../components/CardMaster/CardMaster";
 
 type Props = NativeStackScreenProps<RootStackParamList, "Profile">;
 
@@ -48,11 +49,25 @@ export function Profile({ route }: Props) {
         <ActivityIndicator size="large" color={COLORS.ACTIVE} />
       ) : (
         <FlatList
+          style={{ gap: 35 }}
           data={masters}
           renderItem={({ item }) => {
-            return <Text>{item.id}</Text>;
+            return (
+              <Pressable>
+                {({ pressed }) => {
+                  return (
+                    <CardMaster
+                      name={item.name}
+                      rating={item.rating}
+                      status={pressed}
+                    />
+                  );
+                }}
+              </Pressable>
+            );
           }}
           keyExtractor={(item) => item.id.toString()}
+          ItemSeparatorComponent={() => <View style={{ height: 10 }} />}
         />
       )}
     </View>

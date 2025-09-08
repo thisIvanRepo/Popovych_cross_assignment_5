@@ -1,6 +1,6 @@
 import { StyleSheet, View } from "react-native";
 import FullStar from "../../../assets/images/svg/full_star.svg";
-import EmptyStar from "@/assets/images/svg/empty_star.svg";
+import EmptyStar from "../../../assets/images/svg/empty_star.svg";
 
 interface Props {
   rating: number;
@@ -25,6 +25,9 @@ const style = StyleSheet.create({
 });
 
 const Rating = ({ rating }: Props) => {
+  const ratingNormalized = Math.max(0, Math.min(5, rating));
+  const ratingWidth = (ratingNormalized * 100) / 5;
+
   return (
     <View style={style.container}>
       <View style={style.stars}>
@@ -34,7 +37,7 @@ const Rating = ({ rating }: Props) => {
         <EmptyStar width={20} height={20} />
         <EmptyStar width={20} height={20} />
       </View>
-      <View style={[style.mask, { width: `${(rating * 100) / 5}%` }]}>
+      <View style={[style.mask, { width: `${ratingWidth}%` }]}>
         <FullStar width={20} height={20} />
         <FullStar width={20} height={20} />
         <FullStar width={20} height={20} />
